@@ -45,6 +45,7 @@ module.exports = {
       'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
       'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
       'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+      'process.env.TMDB_API_KEY': JSON.stringify(process.env.TMDB_API_KEY),
     })
   ],
   devtool: 'eval-source-map',
