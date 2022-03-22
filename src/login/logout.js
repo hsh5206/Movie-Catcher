@@ -11,9 +11,6 @@ export default class Logout {
   }
   goToMain = () => {
     sessionStorage.removeItem('id')
-    const main = document.querySelector('.main')
-    main.style.display = 'none'
-    const loginPage = document.querySelector('.login')
-    loginPage.style.display = 'flex'
+    location.replace('index.html')
   }
 }

@@ -11,9 +11,6 @@ export default class Login {
   }
   goToMain = (userId) => {
     sessionStorage.setItem('id',userId)
-    const main = document.querySelector('.main')
-    main.style.display = 'flex'
-    const loginPage = document.querySelector('.login')
-    loginPage.style.display = 'none'
+    location.replace('./main.html')
   }
 }

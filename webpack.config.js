@@ -9,7 +9,8 @@ dotenv.config({path:__dirname+'/.env'});
 module.exports = {
   mode:'none',
   entry : { // 각 html에 필요한 entry 파일
-    index : './src/index.js'
+    index : './src/index.js',
+    main : './src/main.js'
 },
   module: {
     rules: [
@@ -29,14 +30,16 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: `bundle.js`,
+    filename: '[name]_bundle.js',
   },
   devServer: {
     port: 5000
   },
   plugins: [
-    new HtmlWebpackPlugin({template: 'index.html',}),
-    new MiniCssExtractPlugin({filename:'style.css', linkType: false}),
+    new HtmlWebpackPlugin({template: 'index.html', filename:'./index.html', chunks:['index']}),
+    new HtmlWebpackPlugin({template: 'main.html', filename:'./main.html', chunks:['main']}),
+    new MiniCssExtractPlugin({filename:'[name].css', chunkFilename:'[name].css', linkType: false}),
+    new MiniCssExtractPlugin({filename:'[name].css', chunkFilename:'[name].css', linkType: false}),
     new webpack.DefinePlugin({
       'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
       'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
