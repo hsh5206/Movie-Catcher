@@ -18,6 +18,12 @@ export default class TMDB {
     const data = await response.json()
     return data.results
   }
+
+  async getNowPlayingMovies(){
+    const response = await fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${this.key}&language=ko&page=1`, this.requestOptions)
+    const data = await response.json()
+    return data.results
+  }
 }
 
 

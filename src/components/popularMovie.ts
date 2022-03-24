@@ -5,7 +5,6 @@ export class PopularMovie extends Movie<HTMLElement> {
     const popularMoviesContainer = document.querySelector(
       '.popular-movies'
     )! as HTMLElement
-    console.log(movie)
     super(`
             <li>
               <div class="movie-container">

@@ -1,3 +1,6 @@
+body {
+  margin: 0;
+}
 ul {
   list-style: none;
   padding-left: 0px;
@@ -41,4 +44,49 @@ ul {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.now-movies {
+  width: 500vw;
+  height: 250px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  transition: transform 0.5s;
+}
+.now-movie-container {
+  height: 100%;
+  flex: 1;
+  display: flex;
+  padding: 10px;
+}
+.now-movie-info {
+  width: 100%;
+  background-color: antiquewhite;
+  flex: 2;
+}
+.now-movie-info > div {
+  background-color: aquamarine;
+  margin: 10px;
+}
+.now-movie-poster {
+  width: 100%;
+  background-color: aquamarine;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.now-movie-overview {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+}
+.now-movies-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
