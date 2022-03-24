@@ -24,6 +24,12 @@ export default class TMDB {
     const data = await response.json()
     return data.results
   }
+
+  async getCommingMovies(){
+    const response = await fetch(`https://api.themoviedb.org/3/movie/upcoming?api_key=${this.key}&language=ko&page=1&region=KR`, this.requestOptions)
+    const data = await response.json()
+    return data.results
+  }
 }
 
 

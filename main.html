@@ -5,31 +5,50 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title> Main </title>
-</head>
+</head></
 <body>
+  <header class="header">
+    <div class="app-name">Movie Catcher</div>
+    <nav class="menu">
+      <ul class="menus">
+        <li class="home">HOME</li>
+        <li class="search">Seearch</li>
+        <li class="calendar">Calendar</li>
+        <li class="settins">Settins</li>
+      </ul>
+    </nav>
+    <div class="logout-button">로그아웃</div>
+  </header>
+
   <section class="main">
-    <h1>메인 페이지</h1>
-    <button class="logout-button">로그아웃</button>
-  </section>
-
-  <section>
-    <h1>상영 중인 영화</h1>
-    <div class="now-movies"></div>
-    <div class="now-movies-buttons-container">
-      <div class="now-buttons">
-        <input type="radio" class="now-movies-button" checked>
-        <input type="radio" class="now-movies-button">
-        <input type="radio" class="now-movies-button">
-        <input type="radio" class="now-movies-button">
-        <input type="radio" class="now-movies-button">
+    <section>
+      <div class="now-movies"></div>
+      <div class="now-movies-buttons-container">
+        <div class="now-buttons">
+          <input type="radio" class="now-movies-button" checked>
+          <input type="radio" class="now-movies-button">
+          <input type="radio" class="now-movies-button">
+          <input type="radio" class="now-movies-button">
+          <input type="radio" class="now-movies-button">
+        </div>
       </div>
-    </div>
+    </section>
+  
+    <section>
+      <h1>인기 영화 순위</h1>
+      <ul class="popular-movies"></ul>
+    </section>
+
+    <section>
+      <h1>개봉 예정 영화</h1>
+      <ul class="comming-movies">
+
+      </ul>
+    </section>
   </section>
 
-  <section>
-    <h1>인기 영화 순위</h1>
-    <ul class="popular-movies">
-    </ul>
-  </section>
+  <footer class="footer">
+    footer
+  </footer>
 </body>
 </html>
