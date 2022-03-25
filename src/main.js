@@ -4,10 +4,11 @@ import TMDB from './service/tmdb_api'
 import Logout from './login/logout';
 import { getFirestore} from 'firebase/firestore/lite';
 import { firebaseApp } from './service/firebase';
-import { PopularMovie } from './components/popularMovie';
-import { NowPlayingMovie } from './components/nowPlayingMovie';
-import NowMovieSlide from './function/nowMovieSlide';
-import { CommingMovies } from './components/commingMovies';
+import { TopRatedMovie } from './components/item/topRatedMovie';
+import { PopularMovie } from './components/item/popularMovie';
+import NowMovieSlide from './function/popularMovieSlide';
+import { CommingMovies } from './components/item/commingMovie';
+import { NowMovie } from './components/item/nowMovie';
 
 const db = getFirestore(firebaseApp);
 /**슬라이더 */
@@ -15,19 +16,30 @@ new NowMovieSlide
 
 /**TMDB */
 const tmdb = new TMDB(process.env.TMDB_API_KEY)
-
-// 이거 최신영화로 바꾸고 현재 사영영화 페이지 만들고
-// 랭킹 페이지 랭킹 만들기
-const nowPlayingMovies = tmdb.getNowPlayingMovies()
-nowPlayingMovies.then((list) => list.some((movie, index)=> {
-  new NowPlayingMovie({...movie})
+/**인기 영화 */
+const popularMovies = tmdb.getPopularMovies()
+popularMovies.then((list) => list.some((movie, index)=> {
+  new PopularMovie({...movie})
   if (index === 4) return true;
   }))
-
-const popularMovies = tmdb.getPopularMovies()
-popularMovies.then((list) => list.map((movie, index)=>new PopularMovie({...movie, rank: `${index+1}`})))
-/*출시예정 영화 */ // D-day낮은 순으로 정렬해서 렌더링 하기
+/**영화 평점 순위 */
+const topRatedMovies = tmdb.getTopRatedMovies()
+topRatedMovies.then((list) => list.some((movie, index)=> {
+    new TopRatedMovie({...movie, rank: `${index+1}`})
+    if (index === 9) return true;
+}))
+/**상영중인 영화 */
+const nowPlayingMovies = tmdb.getNowPlayingMovies()
+nowPlayingMovies.then((list) => list.some((movie, index)=>{
+  new NowMovie({...movie})
+  if (index === 9) return true;
+}))
+/**출시예정 영화 */
 const commingMovies = tmdb.getCommingMovies()
-commingMovies.then((list) => list.map((movie) => new CommingMovies({...movie})))
+commingMovies.then((list) => list.some((movie, index) => {
+  new CommingMovies({...movie})
+  if (index === 9) return true;
+}))
+
 
 new Logout

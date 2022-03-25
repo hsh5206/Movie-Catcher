@@ -1,18 +1,20 @@
-import { Movie } from './movie'
+import { Movie } from '../movie'
 
 export class CommingMovies extends Movie<HTMLElement> {
-  movie: any
   dday: number
   constructor(movie: any) {
-    super(`
+    super(
+      `
             <li>
-              <div class="comming-movie-container">
+              <div class="movie-container">
                 <div class="comming-movie-dday"></div>
-                <div class="comming-movie-title"> ${movie.title}</div>
+                <div class="comming-movie-title">${movie.title}</div>
                 <img src="https://image.tmdb.org/t/p/w200${movie.poster_path}" width="150" height="180"/>
               </div>
             </li>
-          `)
+          `,
+      movie
+    )
     this.movie = movie
     const commingMoviesContainer = document.querySelector(
       '.comming-movies'
