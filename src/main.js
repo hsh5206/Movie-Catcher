@@ -9,6 +9,7 @@ import { PopularMovie } from './components/item/popularMovie';
 import NowMovieSlide from './function/popularMovieSlide';
 import { CommingMovies } from './components/item/commingMovie';
 import { NowMovie } from './components/item/nowMovie';
+import CommingMovieSort from './function/comingMovieSort';
 
 const db = getFirestore(firebaseApp);
 /**슬라이더 */
@@ -36,10 +37,7 @@ nowPlayingMovies.then((list) => list.some((movie, index)=>{
 }))
 /**출시예정 영화 */
 const commingMovies = tmdb.getCommingMovies()
-commingMovies.then((list) => list.some((movie, index) => {
-  new CommingMovies({...movie})
-  if (index === 9) return true;
-}))
+commingMovies.then((movies) => new CommingMovieSort([...movies]))
 
 
 new Logout
