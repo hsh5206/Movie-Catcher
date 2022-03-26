@@ -1,3 +1,5 @@
+import MoviePage from './moviePage'
+
 export interface IMovie {
   attachTo(parent: HTMLElement, position?: InsertPosition): void
 }
@@ -6,14 +8,18 @@ export class Movie<T extends HTMLElement> {
   protected readonly element: T
   protected movie: any
 
-  constructor(htmml: string, movie: any = null) {
+  constructor(html: string, movie: any = null) {
     this.movie = movie
     const template = document.createElement('template')
-    template.innerHTML = htmml
+    template.innerHTML = html
     this.element = template.content.firstElementChild! as T
     if (this.movie) {
-      this.element.addEventListener('click', () => {
-        console.log(this.movie)
+      this.element.addEventListener('click', (e) => {
+        const body = document.querySelector('body')! as HTMLElement
+        body.style.overflow = 'hidden'
+        const moviePage = document.querySelector('.movie-popup')! as HTMLElement
+        moviePage.style.display = 'flex'
+        new MoviePage(this.movie)
       })
     }
   }

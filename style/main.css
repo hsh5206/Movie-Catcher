@@ -262,6 +262,88 @@ h1 {
   white-space: nowrap;
 }
 
+/*클릭시 페이지 렌더링*/
+.movie-popup {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+.background_cover {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 50%;
+}
+.movie-page {
+  padding: 1.2em;
+  width: 80vw;
+  height: 80vh;
+  margin-top: 10vh;
+  margin-left: 10vw;
+  color: white;
+  background-color: black;
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.popup-movie-container {
+  background-size: 100%, 10%;
+}
+.back {
+  display: flex;
+  cursor: pointer;
+  font-size: 1.4em;
+  font-weight: bold;
+  width: 3vh;
+  height: 3vh;
+  align-items: center;
+  justify-content: center;
+}
+.back:hover {
+  transform: scale(1.1);
+  color: red;
+  transition: ease-in 0.3s;
+}
+.header-img {
+  width: 100%;
+  height: 35vh;
+  background-size: 100%;
+}
+.movie-info {
+  display: flex;
+  backdrop-filter: blur(3px) brightness(50%);
+  text-shadow: 2px 2px 5px black;
+}
+.movie-poster {
+  height: 35vh;
+  width: 25vw;
+}
+.movie-main {
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
+  justify-content: center;
+}
+.movie-title {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+.movie-release {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 1.1em;
+}
+.movie-vote {
+  font-size: 1.3em;
+  font-weight: bold;
+  margin-top: 1.1em;
+}
+
 @media screen and (max-width: 600px) {
   html {
     font-size: 50%;

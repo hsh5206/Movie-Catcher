@@ -7,7 +7,6 @@ import { firebaseApp } from './service/firebase';
 import { TopRatedMovie } from './components/item/topRatedMovie';
 import { PopularMovie } from './components/item/popularMovie';
 import NowMovieSlide from './function/popularMovieSlide';
-import { CommingMovies } from './components/item/commingMovie';
 import { NowMovie } from './components/item/nowMovie';
 import CommingMovieSort from './function/comingMovieSort';
 
