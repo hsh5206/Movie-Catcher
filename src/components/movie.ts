@@ -19,7 +19,7 @@ export class Movie<T extends HTMLElement> {
         body.style.overflow = 'hidden'
         const moviePage = document.querySelector('.movie-popup')! as HTMLElement
         moviePage.style.display = 'flex'
-        new MoviePage(this.movie)
+        new MoviePage(this.movie.id)
       })
     }
   }

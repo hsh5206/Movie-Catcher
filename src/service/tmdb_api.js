@@ -30,6 +30,12 @@ export default class TMDB {
     const data = await response.json()
     return data.results
   }
+
+  async getMoreMovieInfo(id){
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${this.key}&language=ko&region=KR`, this.requestOptions)
+    const data = await response.json()
+    return data
+  }
 }
 
 
