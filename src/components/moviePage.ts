@@ -1,4 +1,6 @@
 import TMDB from '../service/tmdb_api'
+import Similar from './moviePage/similar'
+import Trailer from './moviePage/trailer'
 
 export default class MoviePage<T extends HTMLElement> {
   private element: T | undefined
@@ -33,13 +35,13 @@ export default class MoviePage<T extends HTMLElement> {
       </div>
         <nav class="movie-nav">
           <ul class="movie-nav-ul">
-            <li>줄거리</li>
-            <li>트레일러</li>
-            <li>출연진</li>
-            <li>비슷한 컨텐츠</li>
+            <li class="movie-story clicked">줄거리</li>
+            <li class="movie-trailer">트레일러</li>
+            <li class="movie-people">출연진</li>
+            <li class="movie-similar">비슷한 컨텐츠</li>
           </ul>
         </nav>
-        <div class="movie-overview">${this.movie.overview}</div>
+        <div class="movie-content"></div>
       </div>
     </div>`
     this.element = template.content.firstElementChild! as T
@@ -57,6 +59,27 @@ export default class MoviePage<T extends HTMLElement> {
       temp.push(element.name)
     })
     genres.innerText = temp.join(' | ')
+
+    /**네비게이터 */
+    const content = document.querySelector('.movie-content')! as HTMLElement
+    const story = document.querySelector('.movie-story')! as HTMLElement
+    story.addEventListener('click', () => {
+      console.log('story')
+      content.innerText = `${this.movie.overview}`
+    })
+    const trailer = document.querySelector('.movie-trailer')! as HTMLElement
+    trailer.addEventListener('click', () => {
+      console.log('trailer')
+      new Trailer(this.movie.id)
+    })
+    const people = document.querySelector('.movie-people')! as HTMLElement
+    people.addEventListener('click', () => {
+      console.log('people')
+    })
+    const similar = document.querySelector('.movie-similar')! as HTMLElement
+    similar.addEventListener('click', () => {
+      new Similar(this.movie.id)
+    })
   }
 
   private renderMovie(parent: HTMLElement) {

@@ -285,7 +285,7 @@ h1 {
   margin-top: 10vh;
   margin-left: 10vw;
   color: white;
-  background-color: black;
+  background-color: #303030;
   z-index: 3;
   position: absolute;
   left: 0;
@@ -316,6 +316,7 @@ h1 {
 }
 .movie-info {
   display: flex;
+  height: 100%;
   backdrop-filter: blur(3px) brightness(50%);
   text-shadow: 2px 2px 5px black;
 }
@@ -342,6 +343,49 @@ h1 {
   font-size: 1.3em;
   font-weight: bold;
   margin-top: 1.1em;
+}
+.movie-nav-ul {
+  display: flex;
+  font-size: 1.5em;
+  justify-content: space-around;
+}
+.movie-nav-ul > li {
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  border-left: solid 2px #4b4a54;
+  border-top: solid 2px #4b4a54;
+  border-bottom: solid 2px #4b4a54;
+}
+.movie-nav-ul > li:last-child {
+  border-right: solid 2px #4b4a54;
+}
+.clicked {
+  color: red;
+}
+.movie-content {
+  font-size: 1.2em;
+  height: 100%;
+  padding: 0.5em;
+  border-left: solid 2px #4b4a54;
+  border-right: solid 2px #4b4a54;
+  border-bottom: solid 2px #4b4a54;
+}
+
+.similer-movie-title {
+  width: 130px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.similer-movie-container {
+  display: flex;
+  overflow-y: scroll;
+}
+.similer-movie-container > div {
+  margin-left: 1em;
 }
 
 @media screen and (max-width: 600px) {
