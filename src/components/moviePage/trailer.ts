@@ -19,11 +19,14 @@ export default class Trailer extends Content implements ITrailer {
   }
 
   makePage = () => {
-    let temp = '<div>'
+    let temp = '<ul class="trailers">'
+    if (!this.videos.length) {
+      temp += '<div style="width: 100%; text-align:center">정보 없음</div>'
+    }
     this.videos.map((video) => {
       temp += `
-      <div>
-        <div>${video[0]}</div>
+      <li>
+        <div class="trailer-title">${video[0]}</div>
         <iframe
           width="300"
           height="160"
@@ -32,10 +35,10 @@ export default class Trailer extends Content implements ITrailer {
           frameborder="0"
           allowfullscreen>
         </iframe>
-      </div>
+      </li>
     `
     })
-    temp += '</div>'
+    temp += '</ul>'
     this.element = temp
     this.renderPage()
   }

@@ -51,8 +51,10 @@ export default class MoviePage<T extends HTMLElement> {
     button.addEventListener('click', () => {
       this.removeMovie(parent)
     })
-    const headerImg = document.querySelector('.header-img')! as HTMLElement
-    headerImg.style.backgroundImage = `url(https://image.tmdb.org/t/p/w200${this.movie.backdrop_path})`
+    if (this.movie.backdrop_path) {
+      const headerImg = document.querySelector('.header-img')! as HTMLElement
+      headerImg.style.backgroundImage = `url(https://image.tmdb.org/t/p/w200${this.movie.backdrop_path})`
+    }
     const genres = document.querySelector('.movie-genres')! as HTMLElement
     let temp: string[] = []
     this.movie.genres.forEach((element: any) => {

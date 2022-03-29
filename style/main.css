@@ -374,7 +374,27 @@ h1 {
   border-right: solid 2px #4b4a54;
   border-bottom: solid 2px #4b4a54;
 }
+/*trailer*/
+.trailers {
+  display: flex;
+  overflow: scroll;
+  height: 100%;
+  align-items: center;
+}
+.trailers > li {
+  margin-right: 1em;
+}
+.trailers > li:last-child {
+  margin-right: 0;
+}
+.trailer-title {
+  width: 300px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 
+/*similar movies*/
 .similer-movie-title {
   width: 130px;
   overflow: hidden;
