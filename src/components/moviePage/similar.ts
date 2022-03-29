@@ -1,3 +1,4 @@
+import MoviePage from '../moviePage'
 import { Content, IContent } from './../content'
 
 interface ISimilar extends IContent {
@@ -20,18 +21,31 @@ export default class Similar extends Content implements ISimilar {
   }
 
   makePage = () => {
-    let temp = '<div class="similer-movie-container">'
+    let temp = '<ul class="similer-movie-container">'
     this.similarMovies.map((movie) => {
-      console.log(movie)
       temp += `
-      <div>
+      <li id="${movie[0]} "class="similer-movie">
         <div class="similer-movie-title">${movie[1]}</div>
         <img src="https://image.tmdb.org/t/p/w200${movie[2]}" width="130" height="200"/>
-      </div>
+      </li>
     `
     })
-    temp += '</div>'
+    temp += '</ul>'
     this.element = temp
     this.renderPage()
+    const similerMovie = document.querySelectorAll(
+      '.similer-movie'
+    )! as NodeListOf<HTMLLIElement>
+    for (let i = 0; i < similerMovie.length; i++) {
+      similerMovie[i].addEventListener('click', () => {
+        const button = document.querySelector('.back')! as HTMLElement
+        button.click()
+        new MoviePage(similerMovie[i].id)
+        const moviePopup = document.querySelector(
+          '.movie-popup'
+        )! as HTMLElement
+        moviePopup.style.display = 'flex'
+      })
+    }
   }
 }

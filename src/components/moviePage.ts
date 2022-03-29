@@ -64,22 +64,40 @@ export default class MoviePage<T extends HTMLElement> {
     const content = document.querySelector('.movie-content')! as HTMLElement
     const story = document.querySelector('.movie-story')! as HTMLElement
     story.addEventListener('click', () => {
-      console.log('story')
+      const clicked = document.querySelector('.clicked')! as HTMLElement
+      clicked.style.borderBottom = '2px solid #4b4a54'
+      clicked.classList.remove('clicked')
+      story.classList.add('clicked')
+      story.style.borderBottom = '0'
       content.innerText = `${this.movie.overview}`
     })
     const trailer = document.querySelector('.movie-trailer')! as HTMLElement
     trailer.addEventListener('click', () => {
-      console.log('trailer')
+      const clicked = document.querySelector('.clicked')! as HTMLElement
+      clicked.style.borderBottom = '2px solid #4b4a54'
+      clicked.classList.remove('clicked')
+      trailer.classList.add('clicked')
+      trailer.style.borderBottom = '0'
       new Trailer(this.movie.id)
     })
     const people = document.querySelector('.movie-people')! as HTMLElement
     people.addEventListener('click', () => {
-      console.log('people')
+      const clicked = document.querySelector('.clicked')! as HTMLElement
+      clicked.style.borderBottom = '2px solid #4b4a54'
+      clicked.classList.remove('clicked')
+      people.classList.add('clicked')
+      people.style.borderBottom = '0'
     })
     const similar = document.querySelector('.movie-similar')! as HTMLElement
     similar.addEventListener('click', () => {
+      const clicked = document.querySelector('.clicked')! as HTMLElement
+      clicked.style.borderBottom = '2px solid #4b4a54'
+      clicked.classList.remove('clicked')
+      similar.classList.add('clicked')
+      similar.style.borderBottom = '0'
       new Similar(this.movie.id)
     })
+    story.click()
   }
 
   private renderMovie(parent: HTMLElement) {

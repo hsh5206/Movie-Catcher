@@ -346,10 +346,10 @@ h1 {
 }
 .movie-nav-ul {
   display: flex;
-  font-size: 1.5em;
   justify-content: space-around;
 }
 .movie-nav-ul > li {
+  font-size: 1.3em;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
   flex: 1;
@@ -364,9 +364,10 @@ h1 {
 }
 .clicked {
   color: red;
+  font-weight: bold;
 }
 .movie-content {
-  font-size: 1.2em;
+  font-size: 1.5em;
   height: 100%;
   padding: 0.5em;
   border-left: solid 2px #4b4a54;
@@ -379,13 +380,21 @@ h1 {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  text-align: center;
 }
 .similer-movie-container {
   display: flex;
   overflow-y: scroll;
 }
-.similer-movie-container > div {
-  margin-left: 1em;
+.similer-movie-container > li {
+  cursor: pointer;
+  margin-right: 1em;
+}
+.similer-movie-container > li:last-child {
+  margin-right: 0;
+}
+.similer-movie-container > li:hover {
+  transform: scale(1.01);
 }
 
 @media screen and (max-width: 600px) {
