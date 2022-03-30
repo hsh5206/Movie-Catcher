@@ -1,5 +1,6 @@
 import TMDB from '../service/tmdb_api'
 import Similar from './moviePage/similar'
+import Story from './moviePage/story'
 import Trailer from './moviePage/trailer'
 
 export default class MoviePage<T extends HTMLElement> {
@@ -71,7 +72,7 @@ export default class MoviePage<T extends HTMLElement> {
       clicked.classList.remove('clicked')
       story.classList.add('clicked')
       story.style.borderBottom = '0'
-      content.innerText = `${this.movie.overview}`
+      new Story(this.movie.id, this.movie.overview)
     })
     const trailer = document.querySelector('.movie-trailer')! as HTMLElement
     trailer.addEventListener('click', () => {

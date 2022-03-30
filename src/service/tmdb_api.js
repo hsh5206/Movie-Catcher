@@ -57,6 +57,13 @@ export default class TMDB {
     const data = await response.json()
     return data
   }
+
+  async getWatchMovieProvider(id){
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${this.key}&language=ko&region=KR`, this.requestOptions)
+    const data = await response.json()
+    console.log(data.results.KR)
+    return data.results.KR
+  }
 }
 
 
