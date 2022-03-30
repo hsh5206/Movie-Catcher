@@ -45,7 +45,7 @@ export default class TMDB {
   async getMovieCredits(id){
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=${this.key}&language=ko&region=KR`, this.requestOptions)
     const data = await response.json()
-    return data
+    return data.cast
   }
   async getSimilarMovies(id){
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/similar?api_key=${this.key}&language=ko&page=1&region=KR`, this.requestOptions)
@@ -61,7 +61,6 @@ export default class TMDB {
   async getWatchMovieProvider(id){
     const response = await fetch(`https://api.themoviedb.org/3/movie/${id}/watch/providers?api_key=${this.key}&language=ko&region=KR`, this.requestOptions)
     const data = await response.json()
-    console.log(data.results.KR)
     return data.results.KR
   }
 }

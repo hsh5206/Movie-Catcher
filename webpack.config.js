@@ -22,7 +22,13 @@ module.exports = {
         test: /\.css$/,
         exclude: /node_modules/,
         use: [MiniCssExtractPlugin.loader, 'css-loader']
-      }
+      },{
+        test: /\.(jpe?g|png|gif)$/,
+        use: [
+          {
+            loader: 'file-loader',
+          }]
+        }
     ],
   },
   resolve: {

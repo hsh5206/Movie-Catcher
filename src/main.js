@@ -1,5 +1,6 @@
 'use strict'
 import '../style/main.css'
+import '../assets/defaultPerson.jpeg'
 import TMDB from './service/tmdb_api'
 import Logout from './nav/logout';
 import { getFirestore} from 'firebase/firestore/lite';

@@ -1,4 +1,5 @@
 import TMDB from '../service/tmdb_api'
+import People from './moviePage/people'
 import Similar from './moviePage/similar'
 import Story from './moviePage/story'
 import Trailer from './moviePage/trailer'
@@ -90,6 +91,7 @@ export default class MoviePage<T extends HTMLElement> {
       clicked.classList.remove('clicked')
       people.classList.add('clicked')
       people.style.borderBottom = '0'
+      new People(this.movie.id)
     })
     const similar = document.querySelector('.movie-similar')! as HTMLElement
     similar.addEventListener('click', () => {
