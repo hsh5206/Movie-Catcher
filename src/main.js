@@ -1,7 +1,7 @@
 'use strict'
 import '../style/main.css'
 import TMDB from './service/tmdb_api'
-import Logout from './login/logout';
+import Logout from './nav/logout';
 import { getFirestore} from 'firebase/firestore/lite';
 import { firebaseApp } from './service/firebase';
 import { TopRatedMovie } from './components/item/topRatedMovie';
@@ -9,6 +9,7 @@ import { PopularMovie } from './components/item/popularMovie';
 import NowMovieSlide from './function/popularMovieSlide';
 import { NowMovie } from './components/item/nowMovie';
 import CommingMovieSort from './function/comingMovieSort';
+import Navigation from './nav/navigation';
 
 const db = getFirestore(firebaseApp);
 /**슬라이더 */
@@ -38,5 +39,5 @@ nowPlayingMovies.then((list) => list.some((movie, index)=>{
 const commingMovies = tmdb.getCommingMovies()
 commingMovies.then((movies) => new CommingMovieSort([...movies]))
 
-
+new Navigation
 new Logout

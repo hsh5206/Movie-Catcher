@@ -3,7 +3,6 @@ import MoviePage from '../moviePage'
 
 export class PopularMovie extends Movie<HTMLElement> {
   constructor(movie: any) {
-    console.log(movie)
     const nowMoviesContainer = document.querySelector(
       '.popular-movies'
     )! as HTMLElement
@@ -33,7 +32,6 @@ export class PopularMovie extends Movie<HTMLElement> {
     this.addMovieTo(nowMoviesContainer)
     const button = document.getElementById(`${movie.id}`)! as HTMLElement
     button.addEventListener('click', () => {
-      console.log(button)
       const body = document.querySelector('body')! as HTMLElement
       body.style.overflow = 'hidden'
       const moviePage = document.querySelector('.movie-popup')! as HTMLElement

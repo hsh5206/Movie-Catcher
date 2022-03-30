@@ -51,7 +51,7 @@ h1 {
   cursor: pointer;
   transform: scale(1.1);
 }
-.menus > li:first-child {
+.nav-clicked {
   color: red;
 }
 .logout-button {
@@ -68,6 +68,7 @@ h1 {
 /*메인 컨텐츠*/
 .main {
   margin-top: 80px;
+  flex-direction: column;
 }
 .main > section > h1 {
   margin-left: 10px;
@@ -413,6 +414,21 @@ h1 {
 }
 .similer-movie-container > li:hover {
   transform: scale(1.01);
+}
+
+/*Search*/
+.search {
+  display: none;
+}
+
+/*Calendar*/
+.calendar {
+  display: none;
+}
+
+/*Setting*/
+.setting {
+  display: none;
 }
 
 @media screen and (max-width: 600px) {

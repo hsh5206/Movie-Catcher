@@ -36,9 +36,8 @@ module.exports = {
     port: 5000
   },
   plugins: [
-    new HtmlWebpackPlugin({template: 'index.html', filename:'./index.html', chunks:['index']}),
-    new HtmlWebpackPlugin({template: 'main.html', filename:'./main.html', chunks:['main']}),
-    new MiniCssExtractPlugin({filename:'[name].css', chunkFilename:'[name].css', linkType: false}),
+    new HtmlWebpackPlugin({template: './pages/index.html', filename:'./index.html', chunks:['index']}),
+    new HtmlWebpackPlugin({template: './pages/main.html', filename:'./main.html', chunks:['main']}),
     new MiniCssExtractPlugin({filename:'[name].css', chunkFilename:'[name].css', linkType: false}),
     new webpack.DefinePlugin({
       'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
