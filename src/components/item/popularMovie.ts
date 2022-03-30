@@ -1,7 +1,9 @@
 import { Movie } from '../movie'
+import MoviePage from '../moviePage'
 
 export class PopularMovie extends Movie<HTMLElement> {
   constructor(movie: any) {
+    console.log(movie)
     const nowMoviesContainer = document.querySelector(
       '.popular-movies'
     )! as HTMLElement
@@ -18,8 +20,7 @@ export class PopularMovie extends Movie<HTMLElement> {
               </div>
               <div class="popular-movie-overview"> ${movie.overview} </div>
               <div class="popular-movie-info-buttons">
-                <div class="popular-movie-moreinfo">상세보기</div>
-                <div class="popular-movie-trailer">트레일러</div>
+                <div id="${movie.id}" class="popular-movie-moreinfo">상세보기</div>
               </div>
             </div>
             <div class="popular-movie-poster">
@@ -30,5 +31,14 @@ export class PopularMovie extends Movie<HTMLElement> {
     )
 
     this.addMovieTo(nowMoviesContainer)
+    const button = document.getElementById(`${movie.id}`)! as HTMLElement
+    button.addEventListener('click', () => {
+      console.log(button)
+      const body = document.querySelector('body')! as HTMLElement
+      body.style.overflow = 'hidden'
+      const moviePage = document.querySelector('.movie-popup')! as HTMLElement
+      moviePage.style.display = 'flex'
+      new MoviePage(button.id)
+    })
   }
 }

@@ -14,7 +14,7 @@ export class Movie<T extends HTMLElement> {
     template.innerHTML = html
     this.element = template.content.firstElementChild! as T
     if (this.movie) {
-      this.element.addEventListener('click', (e) => {
+      this.element.addEventListener('click', () => {
         const body = document.querySelector('body')! as HTMLElement
         body.style.overflow = 'hidden'
         const moviePage = document.querySelector('.movie-popup')! as HTMLElement

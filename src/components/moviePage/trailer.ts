@@ -28,8 +28,8 @@ export default class Trailer extends Content implements ITrailer {
       <li>
         <div class="trailer-title">${video[0]}</div>
         <iframe
-          width="300"
-          height="160"
+          width="280"
+          height="155"
           src="https://www.youtube.com/embed/${video[1]}"
           title="YouTube video player"
           frameborder="0"
