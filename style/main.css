@@ -472,7 +472,7 @@ h1 {
 .search-results {
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 .search-movie {
   width: 150px;
