@@ -1,6 +1,7 @@
 'use strict'
 import '../style/main.css'
 import '../assets/defaultPerson.jpeg'
+import '../assets/defaultPoster.jpeg'
 import TMDB from './service/tmdb_api'
 import Logout from './nav/logout';
 import { getFirestore} from 'firebase/firestore/lite';
@@ -11,6 +12,7 @@ import NowMovieSlide from './function/popularMovieSlide';
 import { NowMovie } from './components/item/nowMovie';
 import CommingMovieSort from './function/comingMovieSort';
 import Navigation from './nav/navigation';
+import Search from './search';
 
 const db = getFirestore(firebaseApp);
 /**슬라이더 */
@@ -42,3 +44,5 @@ commingMovies.then((movies) => new CommingMovieSort([...movies]))
 
 new Navigation
 new Logout
+const search = new Search
+window.onresize = search.renderPage

@@ -63,6 +63,12 @@ export default class TMDB {
     const data = await response.json()
     return data.results.KR
   }
+
+  async getSearchResults(query){
+    const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${this.key}&query=${query}}&page=1&language=ko&region=KR`, this.requestOptions)
+    const data = await response.json()
+    return data.results
+  }
 }
 
 

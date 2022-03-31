@@ -24,9 +24,11 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader']
       },{
         test: /\.(jpe?g|png|gif)$/,
-        use: [
-          {
+        use: [{
             loader: 'file-loader',
+            options: {
+              name: 'assets/images/[name].[ext]'
+            }
           }]
         }
     ],

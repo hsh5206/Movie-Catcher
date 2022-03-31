@@ -4,6 +4,7 @@ html {
 body {
   margin: 0;
   background-color: black;
+  margin-top: 80px;
 }
 ul {
   list-style: none;
@@ -67,7 +68,6 @@ h1 {
 
 /*메인 컨텐츠*/
 .main {
-  margin-top: 80px;
   flex-direction: column;
 }
 .main > section > h1 {
@@ -443,6 +443,52 @@ h1 {
 /*Search*/
 .search {
   display: none;
+  padding: 1em;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  height: 5vh;
+  min-height: 30px;
+  max-height: 40px;
+}
+.search-input {
+  width: 50vw;
+  max-width: 400px;
+  height: 100%;
+  font-size: 1.5em;
+}
+.search-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+  height: 100%;
+  margin: 2em;
+}
+.search-results {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.search-movie {
+  width: 150px;
+  padding: 5px;
+}
+.search-movie-poster {
+  width: 150px;
+}
+.search-movie-title {
+  color: white;
+  width: 100%;
+  font-size: 1.5em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
 /*Calendar*/
@@ -487,5 +533,13 @@ h1 {
   }
   .header-img {
     height: 20vh;
+  }
+
+  /*Search*/
+  .search-movie {
+    width: 100px;
+  }
+  .search-movie-poster {
+    width: 100px;
   }
 }
