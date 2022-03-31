@@ -27,7 +27,7 @@ export default class Story extends Content implements IStory {
 
   makePage() {
     let temp = `
-    <div style="height:100%; display:flex; flex-direction:column; justify-content:space-between">
+    <div style="height:100%; display:flex; flex-direction:column; justify-content:space-around">
       <div>${this.overview}</div>
       <div style="display:flex; padding:1.2em; justify-content:end; align-items:center">
     `

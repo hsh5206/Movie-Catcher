@@ -34,6 +34,7 @@ export default class MoviePage<T extends HTMLElement> {
             <div class="movie-genres"></div>
             <div class="movie-genres">${this.movie.production_countries[0].name}</div>
           </div>
+        </div>
       </div>
         <nav class="movie-nav">
           <ul class="movie-nav-ul">
