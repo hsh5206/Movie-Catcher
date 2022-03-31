@@ -1,4 +1,5 @@
-import TMDB from './service/tmdb_api'
+import TMDB from '../service/tmdb_api'
+import MoviePage from './moviePage'
 
 export default class Search {
   tmdb: TMDB
@@ -32,14 +33,14 @@ export default class Search {
       }
       if (!movie.poster_path) {
         temp += `
-      <li class="search-movie">
+      <li id="${movie.id}" class="search-movie">
         <img class="search-movie-poster" src="assets/images/defaultPoster.jpeg"/>
         <div class="search-movie-title">${movie.title}</div>
       </li>
       `
       } else {
         temp += `
-      <li class="search-movie">
+      <li id="${movie.id}" class="search-movie">
         <img class="search-movie-poster" src="https://image.tmdb.org/t/p/w200${movie.poster_path}"/>
         <div class="search-movie-title">${movie.title}</div>
       </li>
@@ -56,5 +57,25 @@ export default class Search {
     const searchResultsChild = searchResults.lastElementChild! as HTMLElement
     for (k; k < num - 1; k++)
       searchResultsChild.innerHTML += `<div style="padding:5px; display:block; width:${w}px; height:${h}px"></div>`
+
+    this.addEventEachMovie()
+  }
+
+  addEventEachMovie = () => {
+    const movies = document.querySelectorAll(
+      '.search-movie'
+    )! as NodeListOf<HTMLElement>
+    for (let i = 0; i < movies.length; i++) {
+      movies[i].addEventListener('click', () => {
+        console.log(movies[i].id)
+        new MoviePage(movies[i].id)
+        const moviePopup = document.querySelector(
+          '.movie-popup'
+        )! as HTMLElement
+        moviePopup.style.display = 'flex'
+        const body = document.querySelector('body')! as HTMLElement
+        body.style.overflow = 'hidden'
+      })
+    }
   }
 }

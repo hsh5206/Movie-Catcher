@@ -280,6 +280,7 @@ h1 {
   padding: 1.2em;
   width: 80vw;
   height: 80vh;
+  min-height: 400px;
   margin-top: 10vh;
   margin-left: 10vw;
   color: white;
@@ -311,8 +312,9 @@ h1 {
   transition: ease-in 0.3s;
 }
 .header-img {
-  width: 100%;
+  flex: 1;
   height: 35vh;
+  min-height: 150px;
   background-size: 100%;
 }
 .movie-info {
@@ -368,9 +370,9 @@ h1 {
   font-weight: bold;
 }
 .movie-content {
+  flex: 1;
   display: flex;
   align-items: center;
-  height: 100%;
   font-size: 1.3em;
   padding: 0.5em;
   border-left: solid 2px #4b4a54;
@@ -475,8 +477,13 @@ h1 {
   justify-content: center;
 }
 .search-movie {
+  cursor: pointer;
   width: 150px;
   padding: 5px;
+}
+.search-movie:hover {
+  transform: scale(1.05);
+  transition: ease-in 0.2s;
 }
 .search-movie-poster {
   width: 150px;

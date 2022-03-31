@@ -19,12 +19,19 @@ export default class MoviePage<T extends HTMLElement> {
 
   private addPage = () => {
     const template = document.createElement('template')
-    template.innerHTML = `
+    let query = ''
+    query += `
     <div class="popup-movie-container">
       <div class="back">X</div>
       <div class="header-img">
         <div class="movie-info">
-          <img class="movie-poster" src="https://image.tmdb.org/t/p/w200${this.movie.poster_path}" width="180" height="250"/>
+    `
+    if (!this.movie.poster_path) {
+      query += `<img class="movie-poster" src="./assets/images/defaultPoster.jpeg" width="180" height="250"/>`
+    } else {
+      query += `<img class="movie-poster" src="https://image.tmdb.org/t/p/w200${this.movie.poster_path}" width="180" height="250"/>`
+    }
+    query += `
           <div class="movie-main">
             <div class="movie-title">${this.movie.title}</div>
             <div class="movie-tagline">"${this.movie.tagline}"</div>
@@ -32,7 +39,7 @@ export default class MoviePage<T extends HTMLElement> {
             <div class="movie-vote">${this.movie.vote_average} / 10</div>
             <div class="movie-runtime">${this.movie.runtime}분</div>
             <div class="movie-genres"></div>
-            <div class="movie-genres">${this.movie.production_countries[0].name}</div>
+            <div class="movie-genres">${this.movie.production_countries[0]?.name}</div>
           </div>
         </div>
       </div>
@@ -47,6 +54,7 @@ export default class MoviePage<T extends HTMLElement> {
         <div class="movie-content"></div>
       </div>
     </div>`
+    template.innerHTML = query
     this.element = template.content.firstElementChild! as T
     const parent = document.querySelector('.movie-page')! as HTMLElement
     this.renderMovie(parent)

@@ -12,7 +12,7 @@ import NowMovieSlide from './function/popularMovieSlide';
 import { NowMovie } from './components/item/nowMovie';
 import CommingMovieSort from './function/comingMovieSort';
 import Navigation from './nav/navigation';
-import Search from './search';
+import Search from './components/search';
 
 const db = getFirestore(firebaseApp);
 /**슬라이더 */
