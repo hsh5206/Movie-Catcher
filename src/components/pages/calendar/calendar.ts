@@ -8,7 +8,9 @@ export default class Calendar extends MakeCalendar {
   }
 
   renderCalendar() {
-    const calendar = document.querySelector('.calendar-table')! as HTMLElement
+    const calendar = document.querySelector(
+      '.calendar-table-tbody'
+    )! as HTMLElement
     calendar.innerHTML = this.element
   }
 }

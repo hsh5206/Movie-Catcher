@@ -500,27 +500,71 @@ h1 {
 
 /*Calendar*/
 .calendar {
+  display: flex;
+  align-items: center;
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   display: none;
   color: white;
   flex-direction: column;
 }
 .calendar-now {
+  width: 100%;
+  position: fixed;
   font-size: 2em;
   text-align: center;
   padding: 1em;
+  background-color: black;
 }
 .calendar-table {
-  background-color: #4b4a54;
+  margin-top: 7rem;
+  background-color: #303030;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+}
+.calendar-table > tbody {
   width: 100%;
   height: 100%;
 }
-.calendar-day {
-  background-color: aliceblue;
+.calendar-table > thead {
+  width: 100%;
+  display: flex;
 }
-.calendar-day > span {
-  color: black;
+.calendar-table > thead > tr {
+  font-size: 1.2em;
+  display: flex;
+  width: 100%;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  justify-content: space-around;
+}
+.calendar-table > tbody > tr {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  justify-content: space-around;
+}
+.calendar-table > tbody > tr > td {
+  width: 13%;
+  height: 90%;
+}
+.calendar-day {
+  display: flex;
+  cursor: pointer;
+  background-color: black;
+  border-radius: 10px;
+}
+.calendar-day:hover {
+  transform: scale(1.05);
+  transition: ease-in 0.2s;
+}
+.calendar-day > div {
+  display: inline-block;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  font-size: 1.2em;
+  color: white;
 }
 
 /*Setting*/
@@ -568,5 +612,10 @@ h1 {
   }
   .search-movie-poster {
     width: 100px;
+  }
+
+  /*Calendar*/
+  .calendar-table {
+    max-height: 600px;
   }
 }
