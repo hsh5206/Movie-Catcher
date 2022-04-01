@@ -41,6 +41,7 @@ export default class MoviePage<T extends HTMLElement> {
             <div class="movie-genres"></div>
             <div class="movie-genres">${this.movie.production_countries[0]?.name}</div>
           </div>
+          <div class="movie-add-calendar-btn">달력에 추가</div>
         </div>
       </div>
         <nav class="movie-nav">
