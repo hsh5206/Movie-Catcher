@@ -1,4 +1,4 @@
-import { Content, IContent } from './../content'
+import { Content, IContent } from '../content'
 
 interface IPeople extends IContent {
   makePage(): void

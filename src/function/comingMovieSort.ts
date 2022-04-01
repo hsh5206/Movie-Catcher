@@ -1,4 +1,4 @@
-import { CommingMovies } from './../components/item/commingMovie'
+import { CommingMovies } from '../components/pages/main/commingMovie'
 export default class CommingMovieSort {
   newMovies: any[]
   constructor(movies: any) {

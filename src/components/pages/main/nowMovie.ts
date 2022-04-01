@@ -1,18 +1,15 @@
-import { Movie } from '../movie'
+import { Movie } from '../../movie'
 
-export class TopRatedMovie extends Movie<HTMLElement> {
+export class NowMovie extends Movie<HTMLElement> {
   constructor(movie: any) {
     const popularMoviesContainer = document.querySelector(
-      '.toprated-movies'
+      '.now-movies'
     )! as HTMLElement
     super(
       `
             <li>
               <div class="movie-container">
-                <div class="top-movie-title-container">
-                  <div class="top-movie-rank">${movie.rank}</div>
-                  <div class="top-movie-title"> ${movie.title}</div>
-                </div>
+                <div class="now-movie-title"> ${movie.title}</div>
                 <img src="https://image.tmdb.org/t/p/w200${movie.poster_path}" width="150" height="180"/>
               </div>
             </li>

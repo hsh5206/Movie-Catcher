@@ -1,5 +1,5 @@
 import MoviePage from '../moviePage'
-import { Content, IContent } from './../content'
+import { Content, IContent } from '../content'
 
 interface ISimilar extends IContent {
   makePage(): void

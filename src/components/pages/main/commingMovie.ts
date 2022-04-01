@@ -1,4 +1,4 @@
-import { Movie } from '../movie'
+import { Movie } from '../../movie'
 
 export class CommingMovies extends Movie<HTMLElement> {
   constructor(movie: any) {

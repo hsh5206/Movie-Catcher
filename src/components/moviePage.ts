@@ -1,8 +1,8 @@
 import TMDB from '../service/tmdb_api'
-import People from './moviePage/people'
-import Similar from './moviePage/similar'
-import Story from './moviePage/story'
-import Trailer from './moviePage/trailer'
+import People from './moviePopUp/people'
+import Similar from './moviePopUp/similar'
+import Story from './moviePopUp/story'
+import Trailer from './moviePopUp/trailer'
 
 export default class MoviePage<T extends HTMLElement> {
   private element: T | undefined

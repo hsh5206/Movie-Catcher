@@ -6,13 +6,14 @@ import TMDB from './service/tmdb_api'
 import Logout from './nav/logout';
 import { getFirestore} from 'firebase/firestore/lite';
 import { firebaseApp } from './service/firebase';
-import { TopRatedMovie } from './components/item/topRatedMovie';
-import { PopularMovie } from './components/item/popularMovie';
+import { TopRatedMovie } from './components/pages/main/topRatedMovie';
+import { PopularMovie } from './components/pages/main/popularMovie';
 import NowMovieSlide from './function/popularMovieSlide';
-import { NowMovie } from './components/item/nowMovie';
+import { NowMovie } from './components/pages/main/nowMovie';
 import CommingMovieSort from './function/comingMovieSort';
 import Navigation from './nav/navigation';
-import Search from './components/search';
+import Search from './components/pages/search/search';
+import Calendar from './components/pages/calendar/calendar'
 
 const db = getFirestore(firebaseApp);
 /**슬라이더 */
@@ -46,3 +47,4 @@ new Navigation
 new Logout
 const search = new Search
 window.onresize = search.renderPage
+new Calendar

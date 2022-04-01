@@ -1,5 +1,5 @@
-import { Movie } from '../movie'
-import MoviePage from '../moviePage'
+import { Movie } from '../../movie'
+import MoviePage from '../../moviePage'
 
 export class PopularMovie extends Movie<HTMLElement> {
   constructor(movie: any) {

@@ -1,5 +1,5 @@
-import TMDB from '../service/tmdb_api'
-import MoviePage from './moviePage'
+import TMDB from '../../../service/tmdb_api'
+import MoviePage from '../../moviePage'
 
 export default class Search {
   tmdb: TMDB
