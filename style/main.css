@@ -589,9 +589,118 @@ h1 {
   display: none;
 }
 
+/*make Card Page*/
+.card {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100vw;
+  height: 100vh;
+}
+.card-container {
+  width: 60vw;
+  height: 80vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 400px;
+  margin-top: 10vh;
+  margin-left: 20vw;
+  color: white;
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.card-back-drop {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px) brightness(50%);
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.card-back {
+  font-weight: bold;
+  padding: 1%;
+  font-size: 1.2em;
+  cursor: pointer;
+  width: 4%;
+  height: 4%;
+}
+.card-back:hover {
+  color: red;
+  transform: scale(1.1);
+}
+.card-info-header {
+  display: flex;
+  height: 48%;
+  margin-left: 10%;
+  margin-right: 10%;
+  justify-content: space-between;
+}
+.card-movie-info {
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-around;
+  text-shadow: 2px 2px 5px black;
+}
+.card-movie-title {
+  font-size: 1.5em;
+}
+.card-movie-tagline {
+  font-size: 1em;
+}
+.card-movie-release {
+  font-size: 1.2em;
+}
+.card-movie-vote {
+  font-size: 1.2em;
+}
+.card-add-btn-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: end;
+}
+.card-add-btn {
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  background-color: red;
+  width: 55px;
+  height: 20px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+.card-add-btn:hover {
+  transform: scale(1.1);
+}
+.card-thinking {
+  border-style: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-top: 3%;
+  width: 80%;
+  margin-left: 10%;
+  height: 40%;
+  resize: none;
+  font-size: 1.3em;
+  overflow: scroll;
+}
+.card-thinking:focus {
+  outline: 0;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 @media screen and (max-width: 600px) {
   html {
-    font-size: 50%;
+    font-size: 70%;
   }
   /*인기영화 date와 vote */
   .popular-movie-dv {
@@ -634,5 +743,13 @@ h1 {
   /*Calendar*/
   .calendar-table {
     max-height: 600px;
+  }
+
+  /*Card*/
+  .card-container {
+    width: 80vw;
+    height: 60vh;
+    margin-top: 20vh;
+    margin-left: 10vw;
   }
 }

@@ -4,7 +4,6 @@ export default class Calendar extends MakeCalendar {
   constructor() {
     super()
     this.renderCalendar()
-    console.log(this.element)
   }
 
   renderCalendar() {

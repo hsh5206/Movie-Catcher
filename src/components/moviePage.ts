@@ -3,6 +3,7 @@ import People from './moviePopUp/people'
 import Similar from './moviePopUp/similar'
 import Story from './moviePopUp/story'
 import Trailer from './moviePopUp/trailer'
+import Card from './pages/calendar/card'
 
 export default class MoviePage<T extends HTMLElement> {
   private element: T | undefined
@@ -39,7 +40,7 @@ export default class MoviePage<T extends HTMLElement> {
             <div class="movie-vote">${this.movie.vote_average} / 10</div>
             <div class="movie-runtime">${this.movie.runtime}분</div>
             <div class="movie-genres"></div>
-            <div class="movie-genres">${this.movie.production_countries[0]?.name}</div>
+            <div class="movie-country">${this.movie.production_countries[0]?.name}</div>
           </div>
           <div class="movie-add-calendar-btn">달력에 추가</div>
         </div>
@@ -74,8 +75,19 @@ export default class MoviePage<T extends HTMLElement> {
     })
     genres.innerText = temp.join(' | ')
 
+    /**Calendar에 추가 버튼 */
+    const addToCalendar = document.querySelector(
+      '.movie-add-calendar-btn'
+    )! as HTMLElement
+    addToCalendar.addEventListener('click', () => {
+      const button = document.querySelector('.back')! as HTMLElement
+      button.click()
+      const makeCardPage = document.querySelector('.card')! as HTMLElement
+      makeCardPage.style.display = 'flex'
+      new Card({ ...this.movie })
+    })
+
     /**네비게이터 */
-    const content = document.querySelector('.movie-content')! as HTMLElement
     const story = document.querySelector('.movie-story')! as HTMLElement
     story.addEventListener('click', () => {
       const clicked = document.querySelector('.clicked')! as HTMLElement
