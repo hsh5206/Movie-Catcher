@@ -20,11 +20,14 @@ export default class Card {
               <div class="card-movie-genres"></div>
               <div class="card-movie-country">${this.movie.production_countries[0]?.name}</div>
             </div>
-            <div class="card-add-btn-container">
+          </div>
+          <div class="card-add-form">
+            <div class="card-add-container">
+              <input class="card-date" type="date" name="startday">
               <div class="card-add-btn">추가하기</div>
             </div>
+            <textarea class="card-thinking"></textarea>
           </div>
-          <textarea class="card-thinking"></textarea>
         </div>
       </div>
     </div>
@@ -56,9 +59,10 @@ export default class Card {
   }
 
   private renderMovie = (parent: HTMLElement) => {
-    console.log(this.element)
+    const body = document.querySelector('body')! as HTMLElement
+    body.style.overflow = 'hidden'
     var winY = window.pageYOffset
-    const moviePopup = document.querySelector('.card-page')! as HTMLElement
+    const moviePopup = document.querySelector('.card')! as HTMLElement
     moviePopup.style.top = `${winY}px`
     parent.appendChild(this.element)
   }
