@@ -3,7 +3,7 @@ import People from './moviePopUp/people'
 import Similar from './moviePopUp/similar'
 import Story from './moviePopUp/story'
 import Trailer from './moviePopUp/trailer'
-import Card from './pages/calendar/card'
+import CardForm from './pages/calendar/cardForm'
 
 export default class MoviePage<T extends HTMLElement> {
   private element: T | undefined
@@ -84,7 +84,7 @@ export default class MoviePage<T extends HTMLElement> {
       button.click()
       const makeCardPage = document.querySelector('.card')! as HTMLElement
       makeCardPage.style.display = 'flex'
-      new Card({ ...this.movie })
+      new CardForm({ ...this.movie })
     })
 
     /**네비게이터 */

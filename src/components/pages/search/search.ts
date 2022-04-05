@@ -4,8 +4,8 @@ import MoviePage from '../../moviePage'
 export default class Search {
   tmdb: TMDB
   private results: any
-  constructor() {
-    this.tmdb = new TMDB(process.env.TMDB_API_KEY)
+  constructor(tmdb: TMDB) {
+    this.tmdb = tmdb
     const query = document.querySelector('.search-input')! as HTMLInputElement
     query.addEventListener('keyup', () => {
       this.tmdb

@@ -4,8 +4,6 @@ import '../assets/defaultPerson.jpeg'
 import '../assets/defaultPoster.jpeg'
 import TMDB from './service/tmdb_api'
 import Logout from './nav/logout';
-import { getFirestore} from 'firebase/firestore/lite';
-import { firebaseApp } from './service/firebase';
 import { TopRatedMovie } from './components/pages/main/topRatedMovie';
 import { PopularMovie } from './components/pages/main/popularMovie';
 import NowMovieSlide from './function/popularMovieSlide';
@@ -14,8 +12,9 @@ import CommingMovieSort from './function/comingMovieSort';
 import Navigation from './nav/navigation';
 import Search from './components/pages/search/search';
 import Calendar from './components/pages/calendar/calendar'
+import DB from './service/db'
 
-const db = getFirestore(firebaseApp);
+const db = new DB()
 /**슬라이더 */
 new NowMovieSlide
 
@@ -45,6 +44,6 @@ commingMovies.then((movies) => new CommingMovieSort([...movies]))
 
 new Navigation
 new Logout
-const search = new Search
+const search = new Search(tmdb)
 window.onresize = search.renderPage
-new Calendar
+new Calendar(db, tmdb)

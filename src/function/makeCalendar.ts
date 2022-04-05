@@ -71,7 +71,9 @@ export default class MakeCalendar {
       if (data[i] === '') {
         h.push(`<td></td>`)
       } else {
-        h.push(`<td class="calendar-day"><div>${data[i]}</div></td>`)
+        h.push(
+          `<td class="calendar-day"><span>${data[i]}</span><div class="images"></div></td>`
+        )
       }
     }
     h.push('</tr>')

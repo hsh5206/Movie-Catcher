@@ -309,7 +309,6 @@ h1 {
 .back:hover {
   transform: scale(1.1);
   color: red;
-  transition: ease-in 0.3s;
 }
 .header-img {
   flex: 1;
@@ -353,7 +352,7 @@ h1 {
   position: absolute;
   border-radius: 10px;
   background-color: red;
-  top: 1em;
+  bottom: 1em;
   right: 1em;
   padding: 0.5em;
   width: fit-content;
@@ -540,10 +539,6 @@ h1 {
   max-width: 1000px;
   height: 100%;
 }
-.calendar-table > tbody {
-  width: 100%;
-  height: 100%;
-}
 .calendar-table > thead {
   width: 100%;
   display: flex;
@@ -556,6 +551,10 @@ h1 {
   padding-bottom: 0.5em;
   justify-content: space-around;
 }
+.calendar-table > tbody {
+  width: 100%;
+  height: 100%;
+}
 .calendar-table > tbody > tr {
   display: flex;
   width: 100%;
@@ -567,21 +566,33 @@ h1 {
   height: 90%;
 }
 .calendar-day {
+  width: 100%;
   display: flex;
+  flex-direction: column;
   cursor: pointer;
-  background-color: black;
-  border-radius: 10px;
+  background-color: white;
+  overflow: scroll;
 }
 .calendar-day:hover {
   transform: scale(1.05);
   transition: ease-in 0.2s;
 }
-.calendar-day > div {
-  display: inline-block;
-  margin-top: 0.5em;
-  margin-left: 0.5em;
+.calendar-day > span {
+  position: fixed;
+  padding: 0.2em;
+  border-radius: 5px;
+  margin: 0.2em;
   font-size: 1.2em;
-  color: white;
+  color: black;
+  background-color: white;
+}
+.calendar-day > div {
+  width: 100%;
+  overflow-y: scorll;
+}
+.calendar-day-poster {
+  height: 100%;
+  width: 100%;
 }
 
 /*Setting*/
@@ -599,6 +610,56 @@ h1 {
   width: 100vw;
   height: 100vh;
 }
+
+.card-list {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  width: 60vw;
+  height: 80vh;
+  margin-top: 10vh;
+  margin-left: 20vw;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.card-slide-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 96%;
+}
+.left,
+.right {
+  padding: 0.2em;
+  cursor: pointer;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  width: 4%;
+  height: fit-content;
+  font-size: 4em;
+  z-index: 5;
+}
+.left:hover,
+.right:hover {
+  transform: scale(1.1);
+}
+.card-slide {
+  display: flex;
+  width: 60vw;
+  height: 100%;
+  overflow: hidden;
+}
+.card-element {
+  flex: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+
 .card-container {
   width: 60vw;
   height: 80vh;
@@ -662,9 +723,7 @@ h1 {
 .card-movie-vote {
   font-size: 1.2em;
 }
-.card-add-btn:hover {
-  transform: scale(1.1);
-}
+
 .card-add-form {
   margin-top: 3%;
   width: 80%;
@@ -677,23 +736,28 @@ h1 {
   align-items: center;
   justify-content: end;
 }
-.cart-date {
+.card-date {
   height: 20%;
+  width: fit-content;
 }
 .card-add-btn {
+  background-color: red;
   margin-left: 1em;
   font-weight: bold;
   cursor: pointer;
   display: flex;
-  width: 55px;
+  width: 60px;
   height: 20px;
   justify-content: center;
   align-items: center;
   border-radius: 10px;
 }
+.card-add-btn:hover {
+  transform: scale(1.1);
+}
 .card-thinking {
   border-style: none;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.4);
   margin-top: 3%;
   width: 100%;
   height: 80%;
@@ -702,12 +766,12 @@ h1 {
 }
 .card-thinking:focus {
   outline: 0;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.6);
 }
 
 @media screen and (max-width: 600px) {
   html {
-    font-size: 70%;
+    font-size: 50%;
   }
   /*인기영화 date와 vote */
   .popular-movie-dv {
