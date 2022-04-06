@@ -3,17 +3,26 @@ export default class MakeCalendar {
   protected month: number
   protected day: number
   protected element: string
+  now: HTMLElement
 
   constructor() {
     this.element = ''
     this.year = new Date().getFullYear()
     this.month = new Date().getMonth() + 1
     this.day = new Date().getDate()
-
     const now = document.querySelector('.calendar-now')! as HTMLElement
-    now.innerHTML = String(this.year) + '년 ' + String(this.month) + '월'
-
+    now.innerHTML = `
+      <div class="prev"> < </div>
+      <span class="now">${String(this.year)}년 ${String(this.month)}월</span>
+      <div class="next"> > </div>
+      `
+    this.now = document.querySelector('.now')! as HTMLElement
+    this.renderNow()
     this.changeYearMonth(this.year, this.month)
+  }
+
+  renderNow = () => {
+    this.now.innerHTML = `${String(this.year)}년 ${String(this.month)}월`
   }
 
   checkLeapYear(year: number) {

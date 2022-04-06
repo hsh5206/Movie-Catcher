@@ -10,6 +10,30 @@ export default class Calendar extends MakeCalendar {
     super()
     this.tmdb = tmdb
     this.db = db
+    const prev = document.querySelector('.prev')! as HTMLElement
+    const next = document.querySelector('.next')! as HTMLElement
+    prev.addEventListener('click', () => {
+      this.month -= 1
+      if (this.month == 0) {
+        this.month = 12
+        this.year -= 1
+      }
+      this.changeYearMonth(this.year, this.month)
+      this.renderNow()
+      this.renderCalendar()
+    })
+    next.addEventListener('click', () => {
+      this.month += 1
+      console.log(this.month)
+
+      if (this.month == 13) {
+        this.month = 0
+        this.year += 1
+      }
+      this.changeYearMonth(this.year, this.month)
+      this.renderNow()
+      this.renderCalendar()
+    })
     this.renderCalendar()
   }
 
@@ -69,6 +93,7 @@ export default class Calendar extends MakeCalendar {
             .then(() => {
               const element = template.content.firstElementChild! as HTMLElement
               const parent = days[i].lastElementChild! as HTMLElement
+              parent.classList.add('movie-contained')
               parent.insertAdjacentElement('beforeend', element)
             })
         })
