@@ -99,11 +99,13 @@ export default class Card {
               <div class="card-movie-genres"></div>
               <div class="card-movie-country">${this.movie.production_countries[0]?.name}</div>
             </div>
+            <div class="card-movie-overview">${this.movie.overview}</div>
           </div>
           <div class="card-add-form">
             <div class="card-add-container">
               <input class="card-date" type="date" name="startday">
-              <div class="card-add-btn">수정하기</div>
+              <div class="card-edit-btn">수정하기</div>
+              <div class="card-delete-btn">삭제하기</div>
             </div>
             <textarea class="card-thinking"></textarea>
           </div>
@@ -127,6 +129,31 @@ export default class Card {
       temp.push(element.name)
     })
     genres.innerText = temp.join(' | ')
+
+    const del = this.element.querySelector('.card-delete-btn')! as HTMLElement
+    del.addEventListener('click', () => {
+      console.log(this.movie.id, this.date)
+      this.db.removeCard(this.movie.id, this.date)
+      alert('삭제 완료')
+      location.reload()
+    })
+    const edit = this.element.querySelector('.card-edit-btn')! as HTMLElement
+    edit.addEventListener('click', () => {
+      const cardDate = this.element.querySelector(
+        '.card-date'
+      )! as HTMLInputElement
+      const cardThinking = this.element.querySelector(
+        '.card-thinking'
+      )! as HTMLTextAreaElement
+      if (!cardDate.value || !cardThinking.value) {
+        window.alert('정보를 모두 입력해주세요')
+      } else {
+        this.db.removeCard(this.movie.id, this.date)
+        this.db.addCard(this.movie.id, cardDate.value, cardThinking.value)
+      }
+
+      alert('수정 완료')
+    })
 
     this.getCardInfo()
   }

@@ -618,7 +618,7 @@ h1 {
 .card-list {
   display: flex;
   flex-direction: column;
-  width: 67vw;
+  width: 68vw;
   height: 80vh;
   margin-top: 10vh;
   margin-left: 16vw;
@@ -632,7 +632,7 @@ h1 {
   align-items: center;
   width: 100%;
   height: 96%;
-  overflow: scroll;
+  overflow: hidden;
 }
 .left,
 .right {
@@ -715,17 +715,27 @@ h1 {
   justify-content: space-between;
 }
 .card-movie-info {
+  flex: 1;
   height: 100%;
   display: inline-flex;
   flex-direction: column;
   justify-content: space-around;
   text-shadow: 2px 2px 5px black;
 }
+.card-movie-overview {
+  margin-top: 5%;
+  font-size: 1.2em;
+  flex: 1;
+  height: 90%;
+  text-shadow: 2px 2px 5px black;
+  overflow: scroll;
+}
 .card-movie-title {
-  font-size: 1.5em;
+  font-weight: bold;
+  font-size: 1.7em;
 }
 .card-movie-tagline {
-  font-size: 1em;
+  font-size: 1.1em;
 }
 .card-movie-release {
   font-size: 1.2em;
@@ -750,6 +760,8 @@ h1 {
   height: 20%;
   width: fit-content;
 }
+.card-edit-btn,
+.card-delete-btn,
 .card-add-btn {
   background-color: red;
   margin-left: 1em;

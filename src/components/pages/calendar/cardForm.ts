@@ -3,7 +3,9 @@ import DB from '../../../service/db'
 export default class CardForm {
   private movie: any
   private element: any
+  db: DB
   constructor(info: any) {
+    this.db = new DB()
     const template = document.createElement('template')
     this.movie = info
     let query = ''
@@ -55,12 +57,10 @@ export default class CardForm {
       if (!cardDate.value || !cardThinking.value) {
         window.alert('정보를 모두 입력해주세요')
       } else {
-        const db = new DB()
-        db.addCard(this.movie.id, cardDate.value, cardThinking.value)
+        this.db.addCard(this.movie.id, cardDate.value, cardThinking.value)
+        alert('추가 완료')
+        location.reload()
       }
-
-      alert('추가 완료')
-      location.reload()
     })
 
     const headerImg = document.querySelector('.card-container')! as HTMLElement
