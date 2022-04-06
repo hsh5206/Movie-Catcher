@@ -9,6 +9,7 @@ export default class Card {
   db: DB
   parent: HTMLElement
   leng: number
+  now: number
   constructor(db: DB, tmdb: TMDB, list: NodeListOf<HTMLElement>, date: string) {
     this.db = db
     this.tmdb = tmdb
@@ -20,7 +21,9 @@ export default class Card {
         <div class="card-back">X</div>
         <div class="card-slide-container">
           <div class="left"><</div>
-          <div class="card-slide"></div>
+          <div class="card-slide-view">
+            <div class="card-slide"></div>
+          </div>
           <div class="right">></div>
         </div>
       </div>`
@@ -29,9 +32,6 @@ export default class Card {
     const page = document.querySelector('.card-page')! as HTMLElement
     page.appendChild(cardList)
     this.parent = document.querySelector('.card-slide')! as HTMLElement
-    if (this.leng != 1) {
-      this.parent.style.width = `${this.leng * 60}vw`
-    }
 
     const button = document.querySelector('.card-back')! as HTMLButtonElement
     button.addEventListener('click', () => {
@@ -40,11 +40,32 @@ export default class Card {
     button.style.zIndex = '4'
     button.style.color = 'red'
 
+    const left = document.querySelector('.left')! as HTMLElement
+    const right = document.querySelector('.right')! as HTMLElement
+    const cardSlideView = document.querySelector(
+      '.card-slide-view'
+    )! as HTMLElement
+    this.now = 0
     if (this.leng == 1) {
-      const left = document.querySelector('.left')! as HTMLElement
-      const right = document.querySelector('.right')! as HTMLElement
       left.style.visibility = 'hidden'
       right.style.visibility = 'hidden'
+    } else {
+      left.addEventListener('click', () => {
+        if (this.now == 0) {
+          this.now = this.leng - 1
+        } else {
+          this.now -= 1
+        }
+        cardSlideView.style.transform = `translate(-${this.now * 64}vw)`
+      })
+      right.addEventListener('click', () => {
+        if (this.now == this.leng - 1) {
+          this.now = 0
+        } else {
+          this.now += 1
+        }
+        cardSlideView.style.transform = `translate(-${this.now * 64}vw)`
+      })
     }
 
     list.forEach((div) => {

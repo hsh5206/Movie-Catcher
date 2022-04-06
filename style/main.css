@@ -525,6 +525,7 @@ h1 {
   flex-direction: column;
 }
 .calendar-now {
+  z-index: 2;
   width: 100%;
   position: fixed;
   font-size: 2em;
@@ -537,7 +538,7 @@ h1 {
   background-color: #303030;
   width: 100%;
   max-width: 1000px;
-  height: 100%;
+  height: fit-content;
 }
 .calendar-table > thead {
   width: 100%;
@@ -558,27 +559,26 @@ h1 {
 .calendar-table > tbody > tr {
   display: flex;
   width: 100%;
-  height: 20%;
+  height: fit-content;
   justify-content: space-around;
 }
 .calendar-table > tbody > tr > td {
   width: 13%;
-  height: 90%;
+  height: 13vh;
+  margin-bottom: 1em;
 }
 .calendar-day {
-  width: 100%;
   display: flex;
   flex-direction: column;
   cursor: pointer;
   background-color: white;
-  overflow: scroll;
 }
 .calendar-day:hover {
   transform: scale(1.05);
   transition: ease-in 0.2s;
 }
 .calendar-day > span {
-  position: fixed;
+  position: absolute;
   padding: 0.2em;
   border-radius: 5px;
   margin: 0.2em;
@@ -586,9 +586,13 @@ h1 {
   color: black;
   background-color: white;
 }
-.calendar-day > div {
+.images {
+  height: 100%;
   width: 100%;
-  overflow-y: scorll;
+  overflow: scroll;
+}
+.images > div {
+  height: 100%;
 }
 .calendar-day-poster {
   height: 100%;
@@ -612,13 +616,12 @@ h1 {
 }
 
 .card-list {
-  background-color: black;
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: 67vw;
   height: 80vh;
   margin-top: 10vh;
-  margin-left: 20vw;
+  margin-left: 16vw;
   position: absolute;
   left: 0;
   top: 0;
@@ -629,16 +632,16 @@ h1 {
   align-items: center;
   width: 100%;
   height: 96%;
+  overflow: scroll;
 }
 .left,
 .right {
-  padding: 0.2em;
   cursor: pointer;
   display: flex;
   color: white;
   align-items: center;
   justify-content: center;
-  width: 4%;
+  width: 4.5vw;
   height: fit-content;
   font-size: 4em;
   z-index: 5;
@@ -647,17 +650,24 @@ h1 {
 .right:hover {
   transform: scale(1.1);
 }
-.card-slide {
-  display: flex;
-  width: 60vw;
+.card-slide-view {
   height: 100%;
-  overflow: hidden;
+  width: 60vw;
+}
+.card-slide {
+  width: max-content;
+  display: flex;
+  height: 100%;
 }
 .card-element {
-  flex: 1;
+  width: 60vw;
+  margin-left: 4vw;
   background-size: cover;
   background-repeat: no-repeat;
   color: white;
+}
+.card-element:first-child {
+  margin-left: 0;
 }
 
 .card-container {
