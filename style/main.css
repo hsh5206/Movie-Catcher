@@ -622,6 +622,12 @@ h1 {
 /*Setting*/
 .setting {
   display: none;
+  justify-content: center;
+  align-items: center;
+}
+.setting-ul {
+  margin-top: 40vh;
+  color: white;
 }
 
 /*make Card Page*/
