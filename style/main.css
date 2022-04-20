@@ -196,6 +196,7 @@ h1 {
   display: none;
 }
 .movie-container {
+  cursor: pointer;
   color: white;
   display: flex;
   flex-direction: column;
