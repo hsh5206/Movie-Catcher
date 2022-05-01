@@ -22,6 +22,7 @@
 
 ## 플랫폼
 Web
+<br/>
 Electron을 이용한 Descktop App (업데이트 예정)
 
 <br/>
@@ -43,7 +44,8 @@ Electron을 이용한 Descktop App (업데이트 예정)
 <br/>
 
 **DB**  
-<img width="611" alt="스크린샷 2022-05-01 오후 9 39 23" src="https://user-images.githubusercontent.com/71358959/166146483-35bd19bb-1df2-4b74-bc8b-887ebbb31c35.png">
+
+<img width="611" alt="스크린샷 2022-05-01 오후 9 39 23" src="https://user-images.githubusercontent.com/71358959/166149456-7af01f26-691e-4f6f-917c-ce18b5e3c61b.png">
 
 <br/>
 <br/>
