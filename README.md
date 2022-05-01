@@ -68,7 +68,7 @@ Electron을 이용한 Descktop App (업데이트 예정)
 **영화 정보 제공**  
 줄거리, 트레일러, 출연진, 비슷한 컨텐츠
 
-![ezgif-3-97e1dd8f1c](https://user-images.githubusercontent.com/71358959/166148801-a0f0c9a7-3601-42b1-9a02-eae0a091cfe8.gif)
+![ezgif-3-3a785d9b2f](https://user-images.githubusercontent.com/71358959/166149168-10a2dd39-b8a7-4232-b891-481627a6131d.gif)
 
 <br/>
 
