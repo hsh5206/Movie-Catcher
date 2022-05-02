@@ -13,6 +13,7 @@
 ## 개요
 
 **영화 기록 어플**  (반응형)
+<br/>
 영화를 찾고, 기록하자
 최신영화, 인기영화, 출시임박영화
 모든 영화의 정보를 열람하자
@@ -92,10 +93,12 @@ Electron을 이용한 Descktop App (업데이트 예정)
 ![ezgif-2-fe1249fbbb](https://user-images.githubusercontent.com/71358959/166147424-2bb7aa46-aa07-4a61-b870-a0934eef37a6.gif)
 
 <br/>
-<br/>
-<br/>
 
 **인물 정보**
 (업데이트 예정)
+
+<br/>
+<br/>
+<br/>
 
 _MADE_BY_2HS_
